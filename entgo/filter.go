@@ -72,7 +72,7 @@ func makeFieldFilter(s *sql.Selector, condition *pagination.Condition) *sql.Pred
 			field = filterJSONField(s, splitField[0], splitField[1])
 		}
 	}
-	return processQueryOperator(s, p, condition.QueryOperator, field, condition.Value)
+	return processQueryOperator(s, p, condition.QueryOperator, field, condition.Value.AsInterface())
 }
 
 // filterJSONField 处理JSON字段
