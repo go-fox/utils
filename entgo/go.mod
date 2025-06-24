@@ -5,7 +5,7 @@ go 1.24.4
 require (
 	entgo.io/ent v0.14.4
 	github.com/duke-git/lancet/v2 v2.3.6
-	github.com/go-fox/fox v0.0.0-20250624095922-bc0bf0fc3776
+	github.com/go-fox/fox v0.0.0-20250624103127-76844b316279
 )
 
 require (
