@@ -1,12 +1,13 @@
 package entgo
 
 import (
+	"fmt"
+	"strings"
+
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
-	"fmt"
 	"github.com/duke-git/lancet/v2/convertor"
 	"github.com/go-fox/fox/api/gen/go/pagination"
-	"strings"
 )
 
 const (
@@ -64,7 +65,10 @@ func makeConditions(s *sql.Selector, conditions []*pagination.Condition) []*sql.
 // makeFieldFilter 构建查询条件
 func makeFieldFilter(s *sql.Selector, condition *pagination.Condition) *sql.Predicate {
 	p := sql.P()
-	field := condition.Field
+	if condition.QueryField == nil {
+		return nil
+	}
+	field := *condition.QueryField
 	isJSONField := isJSONFieldKey(field)
 	if isJSONField {
 		splitField := splitJsonFieldKey(field)
@@ -72,7 +76,7 @@ func makeFieldFilter(s *sql.Selector, condition *pagination.Condition) *sql.Pred
 			field = filterJSONField(s, splitField[0], splitField[1])
 		}
 	}
-	return processQueryOperator(s, p, condition.QueryOperator, field, condition.Value.AsInterface())
+	return processQueryOperator(s, p, condition.QueryOperator, field, condition.QueryValue.AsInterface())
 }
 
 // filterJSONField 处理JSON字段
