@@ -20,7 +20,7 @@ func (AutoIncrementId) Fields() []ent.Field {
 			Comment("id").
 			StructTag(`json:"id,omitempty"`).
 			SchemaType(map[string]string{
-				dialect.MySQL:    "int",
+				dialect.MySQL:    "bigint(20) unsigned",
 				dialect.Postgres: "serial",
 			}).
 			Annotations(
