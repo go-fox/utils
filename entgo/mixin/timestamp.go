@@ -8,13 +8,13 @@ import (
 	"entgo.io/ent/schema/mixin"
 )
 
-// CreateTimestamp 创建时间
-type CreateTimestamp struct{ mixin.Schema }
+// CreatedTimestamp 创建时间
+type CreatedTimestamp struct{ mixin.Schema }
 
-func (CreateTimestamp) Fields() []ent.Field {
+func (CreatedTimestamp) Fields() []ent.Field {
 	return []ent.Field{
 		// 创建时间，毫秒
-		field.Int64("create_at").
+		field.Int64("created_at").
 			Comment("创建时间").
 			Immutable().
 			Optional().
@@ -23,13 +23,13 @@ func (CreateTimestamp) Fields() []ent.Field {
 	}
 }
 
-// UpdateTimestamp 更新时间
-type UpdateTimestamp struct{ mixin.Schema }
+// UpdatedTimestamp 更新时间
+type UpdatedTimestamp struct{ mixin.Schema }
 
-func (UpdateTimestamp) Fields() []ent.Field {
+func (UpdatedTimestamp) Fields() []ent.Field {
 	return []ent.Field{
 		// 创建时间，毫秒
-		field.Int64("update_at").
+		field.Int64("updated_at").
 			Comment("修改时间").
 			Immutable().
 			Optional().
