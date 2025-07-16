@@ -19,7 +19,7 @@ func (CreatedTimestamp) Fields() []ent.Field {
 			Immutable().
 			Optional().
 			Nillable().
-			DefaultFunc(time.Now().Unix()),
+			DefaultFunc(time.Now().Unix),
 	}
 }
 
@@ -34,7 +34,7 @@ func (UpdatedTimestamp) Fields() []ent.Field {
 			Immutable().
 			Optional().
 			Nillable().
-			DefaultFunc(time.Now().Unix()),
+			DefaultFunc(time.Now().Unix),
 	}
 }
 
