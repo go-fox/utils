@@ -31,7 +31,6 @@ func (UpdatedTimestamp) Fields() []ent.Field {
 		// 创建时间，毫秒
 		field.Int64("updated_at").
 			Comment("修改时间").
-			Immutable().
 			Optional().
 			Nillable().
 			DefaultFunc(time.Now().Unix),
